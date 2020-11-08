@@ -1,8 +1,8 @@
 
-
 #include "Arduino.h"
 #include "WiFiManager.h"
-
+#ifndef _CONNECT_INTERNET_H
+#define _CONNECT_INTERNET_H
 
 #define SSID_DEFAULT "SOICT_CORE_BOARD"
 class ConnectInternet
@@ -22,3 +22,4 @@ public:
     bool isConnected();
     bool resetConnect();
 };
+#endif
