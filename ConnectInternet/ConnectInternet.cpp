@@ -1,4 +1,5 @@
 #include "ConnectInternet.h"
+#include "Debug.h"
 #include <EEPROM.h>
 
 
@@ -35,6 +36,8 @@ void ConnectInternet::connect(){
     wifiManager.autoConnect(this->ssid,this->pass);
 }
 bool ConnectInternet::isConnected(){
+    
+   // Debug::LOG_TO_SCREEN(0,0,Wifi.ssid());
     return (WiFi.status() == WL_CONNECTED ? true:false);
 }
 bool ConnectInternet::resetConnect(){

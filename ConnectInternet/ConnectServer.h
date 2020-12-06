@@ -1,16 +1,8 @@
+#ifndef _CONNECT_SERVER_H_
+#define _CONNECT_SERVER_H_
+
 #include "Arduino.h"
 #include "ConnectInternet.h"
-
-#ifndef _CONNECT_SERVER_H
-#define _CONNECT_SERVER_H
-
-#ifdef CONNECT_SERVER_DEBUG
-    #define DEBUG_CONNECT_PRINT(string) (Serial.println(string))
-#endif
-#ifndef CONNECT_SERVER_DEBUG
-    #define DEBUG_CONNECT_PRINT(string)
-#endif
-
 #define BASE_URL "soict-core-01.herokuapp.com"
 #define PATH_GET_VERSION ""
 #define URI_CHECK_COMMUNICATION "/communication"
