@@ -55,6 +55,15 @@ int ConnectServer::getVersion(){
   }
   return status;
 }
+String ConnectServer::getBoardId(){
+  String boardID = "";
+  int status = client.get(URI_GET_BOARD_ID, &boardID);
+  if(status == STATUS_CODE_OKE){
+    return boardID;
+  }
+  return "";
+  
+}
 int ConnectServer::updateFirmware(void){
   
   ESPhttpUpdate.onEnd(update_finished);
