@@ -14,17 +14,20 @@ struct Board_Info{
   char* boardId;
   char* currentFirmware;
   bool checkActived;
+  bool autoUpdate;
   
 };
 class Board
 {
 private:
 public:
+    ESP8266_Info esp;
+    Board_Info board;
     Board();
     ~Board();
-    void getChipInfo(ESP8266_Info *esp_info);
+    void getChipInfo();
     bool checkActived();
-    void getBoardInfo(Board_Info *board_info);
+    void getBoardInfo();
 
 };
 
