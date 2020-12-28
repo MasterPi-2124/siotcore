@@ -1,5 +1,5 @@
-#ifndef _CONNECT_SERVER_H_
-#define _CONNECT_SERVER_H_
+#ifndef _CONNECTSERVER_H_
+#define _CONNECTSERVER_H_
 
 #include "Arduino.h"
 #include "ConnectInternet.h"
@@ -27,7 +27,7 @@ public:
     ~ConnectServer();
     bool isServerConnected(void);
     int getVersion(void);
-    int updateFirmware(void);
+    int updateFirmware(String version);
     String getBoardId();
 
 };

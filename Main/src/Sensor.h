@@ -1,13 +1,7 @@
 // Sensor.h
 
-#ifndef _SENSOR_h
-#define _SENSOR_h
-
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "arduino.h"
-#else
-	#include "WProgram.h"
-#endif
+#ifndef _SENSOR_H_
+#define _SENSOR_H_
 
 #define SHT_dataPin  21
 #define SHT_clockPin 22

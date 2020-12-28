@@ -5,6 +5,7 @@
 
 
 WiFiManager wifiManager;
+
 ConnectInternet::ConnectInternet(){
     this->pass="";
     this->ssid="";

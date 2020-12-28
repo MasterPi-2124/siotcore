@@ -64,13 +64,13 @@ String ConnectServer::getBoardId(){
   return "";
   
 }
-int ConnectServer::updateFirmware(void){
+int ConnectServer::updateFirmware(String version){
   
   ESPhttpUpdate.onEnd(update_finished);
   ESPhttpUpdate.onProgress(update_progress);
   ESPhttpUpdate.onError(update_error);
   Debug::LOG_TO_SCREEN(0,0,"Start upload firmware......");
-  t_httpUpdate_return ret = ESPhttpUpdate.update(URI_GET_FIRMWARE, "1.0");
+  t_httpUpdate_return ret = ESPhttpUpdate.update(URI_GET_FIRMWARE, version);
   switch (ret) {
   case HTTP_UPDATE_FAILED:
     Debug::LOG_TO_SCREEN(0,0,"HTTP_UPDATE_FAILD Error");

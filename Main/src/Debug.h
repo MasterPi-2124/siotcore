@@ -1,6 +1,7 @@
-#include "Arduino.h"
+
 #ifndef _DEBUG_H_
 #define _DEBUG_H_
+#include "Arduino.h"
 #define MAX_WIDTH 128
 #define MAX_HIGHT 64
 

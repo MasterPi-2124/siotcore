@@ -1,5 +1,5 @@
-#ifndef _BOARD_H
-#define _BOARD_H
+#ifndef _BOARD_H_
+#define _BOARD_H_
 #include"Arduino.h"
 struct ESP8266_Info
 {
