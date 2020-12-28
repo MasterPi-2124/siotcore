@@ -1,6 +1,8 @@
-#ifndef _BOARD_H
-#define _BOARD_H
+#ifndef _BOARD_H_
+#define _BOARD_H_
 #include"Arduino.h"
+#include <EEPROM.h>
+#include <ESP8266WiFi.h>
 struct ESP8266_Info
 {
     /* data */

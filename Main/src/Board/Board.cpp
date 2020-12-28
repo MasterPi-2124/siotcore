@@ -1,6 +1,5 @@
 #include "Board.h"
-#include <EEPROM.h>
-#include <ESP8266WiFi.h>
+
 Board::Board(){};
 Board::~Board(){};
 void Board::getChipInfo(){

@@ -1,20 +1,16 @@
 // Sensor.h
 
-#ifndef _SENSOR_h
-#define _SENSOR_h
-
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "arduino.h"
-#else
-	#include "WProgram.h"
-#endif
+#ifndef _SENSOR_H_
+#define _SENSOR_H_
 
 #define SHT_dataPin  21
 #define SHT_clockPin 22
 
 #define Dust_Serial Serial
 #define Dust_baudrate 9600
-
+#include "CircularBuffer.h"
+#include "SHT1x/SHT1x.h"
+#include <EEPROM.h>
 struct __sensor {
 	int sensor_status;
 	float *sensor_value;

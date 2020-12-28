@@ -1,17 +1,15 @@
-#include "Arduino.h"
-#include "Debug.h"
 #include "ConnectServer.h"
-#include "ConnectInternet.h" 
-#include "RestClient.h"
-#include <ESP8266httpUpdate.h>
 
-#define STATUS_CODE_OKE 200
 
 void update_progress(int cur, int total) {
   Debug::LOG_PROGRESS_UPDATE(cur,total);
 }
 void update_finished() {
   Debug::LOG_TO_SCREEN(0,10,"Firmeware update successfully!");
+  delay(1000);
+  Debug::LOG_TO_SCREEN(0,10,"");
+  
+
 }
 void update_error(int err) {
   Debug::LOG_TO_SCREEN(0,10,"Firmeware update error!");
@@ -31,7 +29,6 @@ ConnectServer::~ConnectServer(){}
 
 bool ConnectServer::isServerConnected(){
     while(!cni.isConnected()){
-        // statement
         cni.connect();
         Debug::LOG_TO_SCREEN(0,0,"Waiting for connect...");
         delay(100);
@@ -64,13 +61,13 @@ String ConnectServer::getBoardId(){
   return "";
   
 }
-int ConnectServer::updateFirmware(void){
+int ConnectServer::updateFirmware(String version){
   
   ESPhttpUpdate.onEnd(update_finished);
   ESPhttpUpdate.onProgress(update_progress);
   ESPhttpUpdate.onError(update_error);
   Debug::LOG_TO_SCREEN(0,0,"Start upload firmware......");
-  t_httpUpdate_return ret = ESPhttpUpdate.update(URI_GET_FIRMWARE, "1.0");
+  t_httpUpdate_return ret = ESPhttpUpdate.update(URI_GET_FIRMWARE, version);
   switch (ret) {
   case HTTP_UPDATE_FAILED:
     Debug::LOG_TO_SCREEN(0,0,"HTTP_UPDATE_FAILD Error");

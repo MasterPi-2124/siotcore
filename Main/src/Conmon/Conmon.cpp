@@ -1,6 +1,4 @@
 #include "Conmon.h"
-
-#include <EEPROM.h>
 void read_eeprom(int s_address,int length,byte *value){
     EEPROM.begin(512);
     for(int i = s_address;i<s_address+length;i++){

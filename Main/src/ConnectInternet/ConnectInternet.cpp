@@ -1,10 +1,10 @@
 #include "ConnectInternet.h"
-#include "Debug.h"
-#include <EEPROM.h>
+
 
 
 
 WiFiManager wifiManager;
+
 ConnectInternet::ConnectInternet(){
     this->pass="";
     this->ssid="";
@@ -33,11 +33,12 @@ void ConnectInternet::connect(){
     if(this->ssid ==""){
       this->ssid =SSID_DEFAULT;  
     }
+    Debug::LOG_TO_SCREEN(0,0,"Connect to wifi :" + String(this->ssid)+" to config.");
     wifiManager.autoConnect(this->ssid,this->pass);
 }
 bool ConnectInternet::isConnected(){
     
-   // Debug::LOG_TO_SCREEN(0,0,Wifi.ssid());
+    //Debug::LOG_TO_SCREEN(0,0,Wifi.ssid());
     return (WiFi.status() == WL_CONNECTED ? true:false);
 }
 bool ConnectInternet::resetConnect(){

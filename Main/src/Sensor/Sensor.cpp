@@ -1,9 +1,4 @@
-
 #include "Sensor.h"
-#include <CircularBuffer.h>
-#include <SHT1x.h>
-#include <EEPROM.h>
-
 CircularBuffer<double, 10> PM2_5;
 CircularBuffer<double, 10> PM10;
 SHT1x _sht(SHT_dataPin, SHT_clockPin);

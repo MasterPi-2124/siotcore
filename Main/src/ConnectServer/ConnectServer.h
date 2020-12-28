@@ -1,15 +1,17 @@
-#ifndef _CONNECT_SERVER_H_
-#define _CONNECT_SERVER_H_
+#ifndef _CONNECTSERVER_H_
+#define _CONNECTSERVER_H_
 
 #include "Arduino.h"
-#include "ConnectInternet.h"
+#include "../Debug/Debug.h"
+#include "Restclient/RestClient.h"
+#include <ESP8266httpUpdate.h>
+#include "../ConnectInternet/ConnectInternet.h"
 #define BASE_URL "soict-core-01.herokuapp.com"
-#define PATH_GET_VERSION ""
 #define URI_CHECK_COMMUNICATION "/communication"
 #define URI_GET_VERSION "/version"
 #define URI_GET_BOARD_ID "/boardId"
 #define URI_GET_FIRMWARE "http://soict-core-01.herokuapp.com/updateFirmware" 
-
+#define STATUS_CODE_OKE 200
 /*
     Define list error code
 
@@ -27,7 +29,7 @@ public:
     ~ConnectServer();
     bool isServerConnected(void);
     int getVersion(void);
-    int updateFirmware(void);
+    int updateFirmware(String version);
     String getBoardId();
 
 };
