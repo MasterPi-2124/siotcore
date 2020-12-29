@@ -14,6 +14,7 @@ void Debug::LOG_TO_SCREEN(int x,int y,String string){
   //display.setTextAlignment(TEXT_ALIGN_CENTER_BOTH);
   display.drawStringMaxWidth(x,y,MAX_WIDTH,string);
   display.display();
+  delay(300);
 }
 void Debug::LOG_PROGRESS_UPDATE(int current,int sum){
   delay(10);
@@ -29,4 +30,5 @@ void Debug::LOG_PROGRESS_UPDATE(int current,int sum){
 }
 void Debug::SCREEN_WELCOME(){
     LOG_TO_SCREEN(0,0,"WELCOME TO\n SIOT FLATFORM!");
+    delay(2000);
 }

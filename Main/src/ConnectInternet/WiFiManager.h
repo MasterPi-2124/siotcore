@@ -17,6 +17,7 @@
 #include <ESP8266WebServer.h>
 #include <DNSServer.h>
 #include <memory>
+#include "../Debug/Debug.h"
 
 extern "C" {
   #include "user_interface.h"
