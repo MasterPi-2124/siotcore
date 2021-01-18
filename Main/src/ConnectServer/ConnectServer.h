@@ -6,12 +6,7 @@
 #include "Restclient/RestClient.h"
 #include <ESP8266httpUpdate.h>
 #include "../ConnectInternet/ConnectInternet.h"
-#define BASE_URL "soict-core-01.herokuapp.com"
-#define URI_CHECK_COMMUNICATION "/communication"
-#define URI_GET_VERSION "/version"
-#define URI_GET_BOARD_ID "/boardId"
-#define URI_GET_FIRMWARE "http://soict-core-01.herokuapp.com/updateFirmware" 
-#define STATUS_CODE_OKE 200
+#include "../All_info.h"
 /*
     Define list error code
 
@@ -31,6 +26,7 @@ public:
     int getVersion(void);
     int updateFirmware(String version);
     String getBoardId();
+    int pushData();
 
 };
 

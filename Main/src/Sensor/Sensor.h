@@ -45,7 +45,7 @@ public:
 	SHT();
 	~SHT();
 	void setup();
-  void read_calib();
+ 	void read_calib();
 	int read();
 	void calibrate();
 };

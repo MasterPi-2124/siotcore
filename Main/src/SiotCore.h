@@ -2,6 +2,7 @@
 #define _SIOTCORE_H_
 
 #include "Arduino.h"
+// #include "Define_Infor_core.h"
 #include "Debug/Debug.h"
 #include "Board/Board.h"
 #include "Conmon/Conmon.h"
@@ -26,6 +27,7 @@ public:
     void updateFirmware(String version);
     void init();
     void info();
+    void updateData();
 
 };
 

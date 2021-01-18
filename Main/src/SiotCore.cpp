@@ -36,3 +36,16 @@ void SiotCore::updateFirmware(String version){
     }
     
 }
+void SiotCore::updateData(){
+    while(!cni.isConnected()){
+        cni.connect();
+    }
+    while(cni.isConnected()){
+        if(cns.isServerConnected()){
+            cns.pushData();
+        }else{
+            Serial.println("Fail!");
+        }
+    }
+    
+}
