@@ -11,6 +11,7 @@ void SiotCore::init(){
     Debug::SCREEN_WELCOME();
 
 }
+
 void SiotCore::info(){
 
 }
@@ -47,5 +48,11 @@ void SiotCore::updateData(){
             Serial.println("Fail!");
         }
     }
-    
+}
+void SiotCore::updateData(String URI, String value, String& response){
+    while(!cni.isConnected()){
+        cni.connect();
+    }
+    cns.communicationSever(URI,value,response);
+    // response = "abc";
 }

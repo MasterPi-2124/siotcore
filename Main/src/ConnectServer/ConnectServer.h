@@ -27,6 +27,7 @@ public:
     int updateFirmware(String version);
     String getBoardId();
     int pushData();
+    int communicationSever(String URI, String value, String& response);
 
 };
 
