@@ -11,9 +11,13 @@
 #define SSID_DEFAULT "SOICT_CORE_BOARD"
 
 #define KEY "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YWU5MmZhNC01NGI4LTRkNDMtODE5My1jYjg3YTBiNzg0ZmMiLCJpYXQiOjE2MTEzMjMxNjN9.6dxfiCKoUv2oJE2u5NkU_9cLYpdK3d_nqp7p-ADN-bs"
-#define URL_TEMP "http://siot.techlinkvn.com/api/devices/test-v6s6s/attributes/temperature-jdhvl"
 #define CONTENT_TYPE "application/json"
 #define Platform "key123"
+
+#define URL_TEMP "http://siot.techlinkvn.com/api/devices/test-v6s6s/attributes/temperature-jdhvl"
+#define URL_CHECK "http://siot.techlinkvn.com/api/platforms/test-v6s6s/verify"
+#define URL_DOWN  "http://siot.techlinkvn.com/api/platforms/test-v6s6s/download"
+
 #define MAX_WIDTH 128
 #define MAX_HIGHT 64
 #endif

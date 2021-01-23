@@ -67,7 +67,7 @@ int ConnectServer::updateFirmware(String version){
   ESPhttpUpdate.onProgress(update_progress);
   ESPhttpUpdate.onError(update_error);
   Debug::LOG_TO_SCREEN(0,0,"Start upload firmware......");
-  t_httpUpdate_return ret = ESPhttpUpdate.update(URI_GET_FIRMWARE, version);
+  t_httpUpdate_return ret = ESPhttpUpdate.update("http://480e973d719e.ngrok.io/updateFirmware", version);
   switch (ret) {
   case HTTP_UPDATE_FAILED:
     Debug::LOG_TO_SCREEN(0,0,"HTTP_UPDATE_FAILD Error");
@@ -112,33 +112,54 @@ int ConnectServer::pushData(){
 
     http.end();
 }
-int ConnectServer::communicationSever(String URI, String value, String& response){
-    WiFiClient client;
-    HTTPClient http;
-    Serial.print("[HTTP] begin...\n");
-    // configure traged server and url
-    http.begin(client, URI); //HTTP
-    http.addHeader("Content-Type",CONTENT_TYPE );
+int ConnectServer::communicationSever(String URI, String value, String& response,int method){
+    // WiFiClient client;
+    // HTTPClient http;
+    // Serial.print("[HTTP] begin...\n");
+    // // configure traged server and url
+    // http.begin(client, URI); //HTTP
+    // http.addHeader("Content-Type",CONTENT_TYPE );
     // http.addHeader("Platform-Version",Platform);
-    http.addHeader("Authorization", KEY);
-    Serial.print("[HTTP] POST...\n");
-    // start connection and send HTTP header and body
-    int httpCode = http.POST("{\"value\":\""+value+"\"}");
-
-    // httpCode will be negative on error
-    if (httpCode > 0) {
-      // HTTP header has been send and Server response header has been handled
-      Serial.printf("[HTTP] POST... code: %d\n", httpCode);
-      // file found at server
-      if (httpCode == HTTP_CODE_OK) {
-        const String& payload = http.getString();
-        Serial.println("received payload:\n<<");
-        response = payload;
-        Serial.println(payload);
-        Serial.println(">>");
-      }
-    } else {
-      Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpCode).c_str());
-    }
-    http.end();
+    // http.addHeader("Authorization", KEY);
+    // // Serial.print("[HTTP] POST...\n");
+    // // start connection and send HTTP header and body
+    // int httpCode = -1;
+    // switch (method)
+    // {
+    // case GET:{
+    //   httpCode =http.GET();
+    //   break;
+    // }
+    // case POST:
+    // {
+    //   String body ="{\"value\":\""+value+"\"}"; 
+    //   httpCode = http.POST(body);
+    //   break;
+    // }
+    // case UPDATE:
+    //   break;
+    // case PUT:
+    //   break;
+    // case DELETE:
+    //   break;
+    // default:
+    //   Debug::LOG_TO_SCREEN(0,0,"METHOD NOT CORRECT");
+    //   break;
+    // }
+    // if (httpCode > 0) {
+    //   // HTTP header has been send and Server response header has been handled
+    //   Serial.printf("[HTTP] POST... code: %d\n", httpCode);
+    //   // file found at server
+    //   if (httpCode == HTTP_CODE_OK) {
+    //     const String& payload = http.getString();
+    //     Serial.println("received payload:\n<<");
+    //     response = payload;
+    //     Serial.println(payload);
+    //     this->updateFirmware(Platform);
+    //     Serial.println(">>");
+    //   }
+    // } else {
+    //   Serial.printf("[HTTP] POST... failed, error: %s\n", http.errorToString(httpCode).c_str());
+    // }
+    // http.end();
 }

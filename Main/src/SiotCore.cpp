@@ -19,19 +19,20 @@ void SiotCore::info(){
 void SiotCore::updateFirmware(String version){
     Serial.begin(this->_baudrate);
     Serial.println("Hello");
-    cni.resetConnect();
+    //cni.resetConnect();
     if(this->_version != version){
         while(!cni.isConnected()){
             cni.connect();
         }
-        while(cni.isConnected()){
-            if(cns.isServerConnected()){
-                cns.updateFirmware(version);
-                this->_version =version;
-            }else{
-                Serial.println("Fail!");
-            }
-        }
+        cns.updateFirmware(version);
+        // while(cni.isConnected()){
+        //     if(cns.isServerConnected()){
+        //         cns.updateFirmware(version);
+        //         this->_version =version;
+        //     }else{
+        //         Serial.println("Fail!");
+        //     }
+        // }
     }else{
         Serial.println("This is newiest version!");
     }
@@ -49,10 +50,10 @@ void SiotCore::updateData(){
         }
     }
 }
-void SiotCore::updateData(String URI, String value, String& response){
+void SiotCore::updateData(String URI, String value, String& response,int method){
     while(!cni.isConnected()){
         cni.connect();
     }
-    cns.communicationSever(URI,value,response);
+    cns.communicationSever(URI,value,response,method);
     // response = "abc";
 }

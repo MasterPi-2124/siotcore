@@ -13,7 +13,13 @@
 */
 
 //#define DEBUG 1
-
+enum{
+    GET,
+    POST,
+    UPDATE,
+    PUT,
+    DELETE
+};
 
 class ConnectServer
 {
@@ -27,7 +33,7 @@ public:
     int updateFirmware(String version);
     String getBoardId();
     int pushData();
-    int communicationSever(String URI, String value, String& response);
+    int communicationSever(String URI, String value, String& response,int method);
 
 };
 

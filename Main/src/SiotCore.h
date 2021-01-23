@@ -28,7 +28,7 @@ public:
     void init();
     void info();
     void updateData();
-    void updateData(String URI, String value, String& response);
+    void updateData(String URI, String value, String& response, int method);
 };
 
 
